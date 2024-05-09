@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1130e545-f518-422c-87ae-220995d762a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM bitacora;]]>
+	</queryString>
+	<field name="bitid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bitfecha" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bitaccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bitip" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bitnombrepc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="usuid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="aplid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="2" width="100" height="20" uuid="eb46bf1c-02a5-4f28-a18f-a07e2a4ccba6"/>
+				<text><![CDATA[bitfecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="2" width="100" height="20" uuid="de5630e2-6386-40cd-a706-4eb77babe04e"/>
+				<text><![CDATA[bitaccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="2" width="100" height="20" uuid="0528a38c-54ab-43c6-969c-a1f05dd346de"/>
+				<text><![CDATA[bitip]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="2" width="100" height="20" uuid="8d87da39-ab83-4132-9071-aab80e2d6c8d"/>
+				<text><![CDATA[bitnombrepc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="2" width="100" height="20" uuid="62e30eb8-f8d6-4f65-9b22-892459e2021e"/>
+				<text><![CDATA[usuid]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="14" width="100" height="20" uuid="e4fa1a0a-d7a4-4822-9e7c-f96a61cfa0dc"/>
+				<textFieldExpression><![CDATA[""+$F{bitfecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="14" width="100" height="20" uuid="2cff483f-bf3b-4b23-87bc-4aa44aa8021e"/>
+				<textFieldExpression><![CDATA[$F{bitaccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="14" width="100" height="20" uuid="45c8a509-3ddd-42d3-9a4d-82eddbfb6e8e"/>
+				<textFieldExpression><![CDATA[$F{bitip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="14" width="100" height="20" uuid="2598d6b3-2718-45d6-9593-681a85b9c15d"/>
+				<textFieldExpression><![CDATA[$F{bitnombrepc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="14" width="100" height="20" uuid="1b12422b-b58b-455f-9ac9-2ec47cb19efc"/>
+				<textFieldExpression><![CDATA[$F{usuid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

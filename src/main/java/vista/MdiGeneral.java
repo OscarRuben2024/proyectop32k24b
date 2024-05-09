@@ -35,6 +35,7 @@ public class MdiGeneral extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArchivo = new javax.swing.JMenu();
@@ -47,11 +48,15 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuCatalogosMantenimientosMaestros = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
         mnuReportes = new javax.swing.JMenu();
+        mnuSeguridad = new javax.swing.JMenu();
+        mnuSeguridadBitacora = new javax.swing.JMenuItem();
         mnuAyudas = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem2.setText("jMenuItem2");
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +129,19 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuReportes.setText("Reportes");
         jMenuBar1.add(mnuReportes);
 
+        mnuSeguridad.setText("Seguridad");
+
+        mnuSeguridadBitacora.setText("Consulta Bitacora");
+        mnuSeguridadBitacora.setName("mnuSeguridadBitacora"); // NOI18N
+        mnuSeguridadBitacora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSeguridadBitacoraActionPerformed(evt);
+            }
+        });
+        mnuSeguridad.add(mnuSeguridadBitacora);
+
+        jMenuBar1.add(mnuSeguridad);
+
         mnuAyudas.setText("Ayuda");
         jMenuBar1.add(mnuAyudas);
 
@@ -175,6 +193,15 @@ public class MdiGeneral extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnuCatalogosMantenimientosAlumnosActionPerformed
 
+    private void mnuSeguridadBitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSeguridadBitacoraActionPerformed
+        // TODO add your handling code here:
+        frmMantenimientoBitacora ventana = new frmMantenimientoBitacora();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_mnuSeguridadBitacoraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -212,6 +239,7 @@ public class MdiGeneral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -226,5 +254,7 @@ public class MdiGeneral extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuCatalogosMantenimientosMaestros;
     private javax.swing.JMenu mnuProcesos;
     private javax.swing.JMenu mnuReportes;
+    private javax.swing.JMenu mnuSeguridad;
+    private javax.swing.JMenuItem mnuSeguridadBitacora;
     // End of variables declaration//GEN-END:variables
 }
