@@ -47,6 +47,8 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuCatalogosMantenimientosAlumnos = new javax.swing.JMenuItem();
         mnuCatalogosMantenimientosMaestros = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        BancosBoton = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
         mnuSeguridad = new javax.swing.JMenu();
         mnuSeguridadBitacora = new javax.swing.JMenuItem();
@@ -124,6 +126,19 @@ public class MdiGeneral extends javax.swing.JFrame {
         jMenuBar1.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
+
+        jMenu2.setText("Tesoreria");
+
+        BancosBoton.setText("MantenimientoBancos");
+        BancosBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BancosBotonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(BancosBoton);
+
+        mnuProcesos.add(jMenu2);
+
         jMenuBar1.add(mnuProcesos);
 
         mnuReportes.setText("Reportes");
@@ -202,6 +217,15 @@ public class MdiGeneral extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_mnuSeguridadBitacoraActionPerformed
 
+    private void BancosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BancosBotonActionPerformed
+        // TODO add your handling code here:
+        MantenimientoBancos ventana = new MantenimientoBancos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_BancosBotonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -238,8 +262,10 @@ public class MdiGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BancosBoton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
