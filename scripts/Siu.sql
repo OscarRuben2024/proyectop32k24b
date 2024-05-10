@@ -127,7 +127,7 @@ CREATE TABLE asignacioncursosalumnos
   ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
 -- -----------------------------------------------------
 -- Table `educativo`.`Asignacion_cursos_maestros`
--- --------------------------------usuario---------------------
+-- -----------------------------------------------------
 CREATE TABLE asignacioncursosmastros
 (
   codigo_carrera VARCHAR(5),
@@ -146,22 +146,52 @@ CREATE TABLE asignacioncursosmastros
   FOREIGN KEY (codigo_curso) REFERENCES cursos(codigo_curso),
   FOREIGN KEY (codigo_maestro) REFERENCES maestros(codigo_maestro)
   ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
-  CREATE TABLE IF NOT EXISTS aplicacion (
-	aplid int NOT NULL AUTO_INCREMENT,
-	aplnombre VARCHAR(50),
-	aplestatus VARCHAR(50),
-	PRIMARY KEY (aplid)
-) ENGINE=InnoDB CHARACTER SET = latin1;  
-  -- Creaciòn de la Bitacora de Seguridad
-  CREATE TABLE IF NOT EXISTS bitacora (
-    bitid int auto_increment PRIMARY KEY,
-    bitfecha datetime NULL, 
-	bitaccion VARCHAR(10) NOT NULL,
-    bitip VARCHAR(25) NOT NULL,
-    bitnombrepc VARCHAR(50) NOT NULL,
-    usuid INT NOT NULL,
-    aplid INT NOT NULL,
-	FOREIGN KEY (aplid) references aplicacion (aplid),
-	FOREIGN KEY (usuid) references usuario (id_usuario)    
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;	
+-- -----------------------------------------------------
+-- Table `siu`.`Bancos`
+-- -----------------------------------------------------
+CREATE TABLE bancos
+(
+  id_banco INT NOT NULL AUTO_INCREMENT,
+  nombre_banco VARCHAR(45),
+  estatus_legal VARCHAR(20),
+  direccion_principal VARCHAR(100),
+  PRIMARY KEY (id_banco)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
 
+
+-- -----------------------------------------------------
+-- Table `siu`.`TiposDePagos`
+-- -----------------------------------------------------
+CREATE TABLE TiposDePagos
+(
+  id_tipo_pago INT NOT NULL AUTO_INCREMENT,
+  nombre_tipo_pago VARCHAR(45),
+  cantidad_tipo_pago VARCHAR(45),
+  PRIMARY KEY (id_tipo_pago)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+
+-- -----------------------------------------------------
+-- Table `siu`.`Tipo_Monedas`
+-- -----------------------------------------------------
+CREATE TABLE tipo_monedas
+(
+  id_moneda INT NOT NULL AUTO_INCREMENT,
+  nombre_moneda VARCHAR(45),
+  PRIMARY KEY (id_moneda)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `siu`.`Tesoreria`
+-- -----------------------------------------------------
+CREATE TABLE Tesoreria (
+    id_tesoreria INT NOT NULL AUTO_INCREMENT,
+    concepto VARCHAR(100),
+    monto DECIMAL(10, 2),
+    fecha DATE,
+    id_banco INT,
+    id_tipo_pago INT,
+    id_moneda INT,
+    PRIMARY KEY (id_tesoreria),
+    FOREIGN KEY (id_banco) REFERENCES bancos(id_banco),
+    FOREIGN KEY (id_tipo_pago) REFERENCES tipo_pago(id_tipo_pago),
+    FOREIGN KEY (id_moneda) REFERENCES tipo_monedas(id_moneda)
+)ENGINE = InnoDB DEFAULT CHARSET=latin1;
