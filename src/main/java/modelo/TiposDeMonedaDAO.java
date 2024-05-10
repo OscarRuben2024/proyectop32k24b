@@ -18,8 +18,8 @@ import java.util.List;
 public class TiposDeMonedaDAO {
 
     private static final String SQL_SELECT = "SELECT id_moneda, nombre_moneda FROM TiposDeMoneda";
-    private static final String SQL_INSERT = "INSERT INTO TiposDeMoneda(nombre_moneda) VALUES(?)";
-    private static final String SQL_UPDATE = "UPDATE TiposDeMoneda SET id_moneda=? WHERE id_moneda = ?";
+    private static final String SQL_INSERT = "INSERT INTO TiposDeMoneda(id_moneda, nombre_moneda) VALUES(?,?)";
+    private static final String SQL_UPDATE = "UPDATE TiposDeMoneda SET nombre_moneda=? WHERE id_moneda = ?";
     private static final String SQL_DELETE = "DELETE FROM TiposDeMoneda WHERE id_moneda=?";
     private static final String SQL_QUERY = "SELECT id_moneda, nombre_moneda FROM TiposDeMoneda WHERE id_moneda = ?";
 
@@ -62,7 +62,8 @@ public class TiposDeMonedaDAO {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, tipoMoneda.getNombreMoneda());
+            stmt.setInt   (1, tipoMoneda.getIdMoneda());
+            stmt.setString(2, tipoMoneda.getNombreMoneda());
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);

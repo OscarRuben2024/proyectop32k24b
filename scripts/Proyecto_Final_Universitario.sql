@@ -149,7 +149,7 @@ CREATE TABLE asignacioncursosmastros
   CREATE TABLE IF NOT EXISTS aplicacion (
 	aplid int NOT NULL AUTO_INCREMENT,
 	aplnombre VARCHAR(50),
-	aplestatus VARCHAR(50),
+	ausuarioplestatus VARCHAR(50),
 	PRIMARY KEY (aplid)
 ) ENGINE=InnoDB CHARACTER SET = latin1;  
   -- Creaciòn de la Bitacora de Seguridad
@@ -164,4 +164,12 @@ CREATE TABLE asignacioncursosmastros
 	FOREIGN KEY (aplid) references aplicacion (aplid),
 	FOREIGN KEY (usuid) references usuario (id_usuario)    
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;	
-
+-- -----------------------------------------------------
+-- Table `educativo`.`Tipos de moneda`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS TiposDeMoneda (
+	id_moneda INT NOT NULL AUTO_INCREMENT,
+    nombre_moneda VARCHAR(50),
+    valor_en_quetzal VARCHAR(25),
+    PRIMARY KEY (id_moneda)
+)

@@ -33,12 +33,12 @@ public class TiposDeMoneda {
         return nombre_moneda;
     }
 
-    public void setNombreMoneda(String nombre) {
+    public void setNombreMoneda(String nombre_moneda) {
         this.nombre_moneda = nombre_moneda;
     }
 
     @Override
     public String toString() {
-        return "TiposDeMoneda{" + "id_moneda=" + id_moneda + ", nombre_moneda='" + nombre_moneda + '}';
+        return "TiposDeMoneda{" + "id_moneda=" + id_moneda + ", nombre_moneda=" + nombre_moneda + '}';
     }
 }

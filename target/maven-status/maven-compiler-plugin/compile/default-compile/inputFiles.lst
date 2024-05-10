@@ -1,17 +1,26 @@
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\EmpleadoDAO.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\vista\MdiGeneral.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\vista\frmMantenimientoBitacora.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\daoBitacora.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\clsBitacora.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\vista\MantenimientoCursos.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\clsUsuarioConectado.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\MaestrosDAO.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\CursosDAO.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\vista\Login.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\Maestros.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\Conexion.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\Usuario.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\Cursos.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\vista\MantenimientoMaestros.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\modelo\UsuarioDAO.java
-C:\Users\Soporte\Documents\Profesional\Umg\Didactica2k24\proyectos\proyectop32k24b\src\main\java\controlador\Empleado.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\Cursos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\MaestrosDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\Empleado.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\EmpleadoDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MantenimientoPagos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\Conexion.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\Login.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\Maestros.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\TiposDePagoDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MantenimientoBancos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MantenimientoMaestros.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\TiposDeMonedaDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\Bancos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\UsuarioDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MantenimientoCursos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\TiposDeMoneda.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\BancosDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MdiGeneral.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\clsBitacora.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\frmMantenimientoBitacora.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\TiposDePagos.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\Usuario.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\vista\MantenimientoTiposDeMoneda.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\controlador\clsUsuarioConectado.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\CursosDAO.java
+C:\Users\Kevin\Desktop\UMG 2022\UMG SEMESTRE 5\Programación 3\proyectop32k24b\proyectop32k24b\src\main\java\modelo\daoBitacora.java
