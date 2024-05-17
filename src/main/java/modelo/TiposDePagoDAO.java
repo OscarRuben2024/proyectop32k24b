@@ -17,7 +17,7 @@ import java.util.List;
 public class TiposDePagoDAO {
      private static final String SQL_SELECT = "SELECT id_tipo_pago, nombre_tipo_pago, cantidad_tipo_pago FROM TiposDePagos";
      private static final String SQL_INSERT = "INSERT INTO TiposDePagos(id_tipo_pago,nombre_tipo_pago, cantidad_tipo_pago) VALUES(?, ?, ?)";
-     private static final String SQL_UPDATE = "UPDATE TiposDePagos SET id_tipo_pago=? WHERE id_tipo_pago = ?";
+     private static final String SQL_UPDATE = "UPDATE TiposDePagos SET nombre_tipo_pago=?, cantidad_tipo_pago=? WHERE id_tipo_pago = ?";
      private static final String SQL_DELETE = "DELETE FROM TiposDePagos WHERE id_tipo_pago=?";
      private static final String SQL_QUERY = "SELECT id_tipo_pago, nombre_tipo_pago, cantidad_tipo_pago FROM TiposDePagos WHERE id_tipo_pago = ?";
 
@@ -26,7 +26,7 @@ public class TiposDePagoDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         TiposDePagos tipoPago = null;
-        List<TiposDePagos> tiposDePagos = new ArrayList<TiposDePagos>();
+        List<TiposDePagos> tiposDePagos = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -41,6 +41,7 @@ public class TiposDePagoDAO {
                 tipoPago.setIdTipoPago(id);
                 tipoPago.setNombrePago(nombre);
                 tipoPago.setcantidadPago(cantidad);
+                
                 tiposDePagos.add(tipoPago);
             }
 
@@ -84,13 +85,13 @@ public class TiposDePagoDAO {
 
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecución query:" + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setString(1, tipoPago.getIdTipoPago());
             stmt.setString(2, tipoPago.getNombrePago());
             stmt.setString(3, tipoPago.getcantidadPago());
+            
             rows = stmt.executeUpdate();
-            System.out.println("Registros actualizados:" + rows);
+            System.out.println("Registros actualizados");
             
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -109,11 +110,10 @@ public class TiposDePagoDAO {
 
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setString(1, tipoPago.getIdTipoPago());
             rows = stmt.executeUpdate();
-            System.out.println("Registros eliminados:" + rows);
+            System.out.println("Registros eliminados");
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
@@ -131,7 +131,6 @@ public class TiposDePagoDAO {
 
         try {
             conn = Conexion.getConnection();
-            System.out.println("Ejecutando query:" + SQL_QUERY);
             stmt = conn.prepareStatement(SQL_QUERY);
             stmt.setString(1, tipoPago.getIdTipoPago());
             rs = stmt.executeQuery();
@@ -140,7 +139,7 @@ public class TiposDePagoDAO {
                 String nombre = rs.getString("nombre_tipo_pago");
                 String cantidad = rs.getString("cantidad_tipo_pago");
                 
-                 tipoPago = new TiposDePagos();
+                tipoPago = new TiposDePagos();
                 tipoPago.setIdTipoPago(id);
                 tipoPago.setNombrePago(nombre);
                 tipoPago.setcantidadPago(cantidad);

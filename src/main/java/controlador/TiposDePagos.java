@@ -29,7 +29,7 @@ public class TiposDePagos {
         return id_tipo_pago;
     }
 
-    public void setIdTipoPago(String idTipoPago) {
+    public void setIdTipoPago(String id_tipo_pago) {
         this.id_tipo_pago = id_tipo_pago;
     }
 
@@ -37,13 +37,13 @@ public class TiposDePagos {
         return nombre_tipo_pago;
     }
 
-    public void setNombrePago(String nombrePago) {
+    public void setNombrePago(String nombre_tipo_pago) {
         this.nombre_tipo_pago = nombre_tipo_pago;
     }
     public String getcantidadPago() {
         return cantidad_tipo_pago;
     }
-    public void setcantidadPago(String cantidadTipoPago){
+    public void setcantidadPago(String cantidad_tipo_pago){
         this.cantidad_tipo_pago = cantidad_tipo_pago;
     }
 

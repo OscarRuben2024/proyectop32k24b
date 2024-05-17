@@ -48,6 +48,7 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuCatalogosMantenimientosMaestros = new javax.swing.JMenuItem();
         mnuCatalogosMantenimientosTiposDePagos = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
+        ProcesosTiposPagosMaestros = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
         mnuSeguridad = new javax.swing.JMenu();
         mnuSeguridadBitacora = new javax.swing.JMenuItem();
@@ -133,6 +134,15 @@ public class MdiGeneral extends javax.swing.JFrame {
         jMenuBar1.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
+
+        ProcesosTiposPagosMaestros.setText("ProcesoPagoMaestro");
+        ProcesosTiposPagosMaestros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcesosTiposPagosMaestrosActionPerformed(evt);
+            }
+        });
+        mnuProcesos.add(ProcesosTiposPagosMaestros);
+
         jMenuBar1.add(mnuProcesos);
 
         mnuReportes.setText("Reportes");
@@ -219,6 +229,15 @@ public class MdiGeneral extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_mnuCatalogosMantenimientosTiposDePagosActionPerformed
 
+    private void ProcesosTiposPagosMaestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesosTiposPagosMaestrosActionPerformed
+        ProcesosTiposDePagos ventana = new ProcesosTiposDePagos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_ProcesosTiposPagosMaestrosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,6 +274,7 @@ public class MdiGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ProcesosTiposPagosMaestros;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
