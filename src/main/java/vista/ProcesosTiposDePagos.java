@@ -14,6 +14,7 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import controlador.clsBitacora;
 import controlador.clsUsuarioConectado;
+import java.awt.Dimension;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
@@ -105,6 +106,7 @@ import modelo.Conexion;
         btnmodificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
 
         setClosable(true);
         setIconifiable(true);
@@ -168,6 +170,7 @@ import modelo.Conexion;
                 btnlimpiarActionPerformed(evt);
             }
         });
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,6 +304,7 @@ import modelo.Conexion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaProcesoPagoMaestro;
     private javax.swing.JTextField txtCodigoMaestro;

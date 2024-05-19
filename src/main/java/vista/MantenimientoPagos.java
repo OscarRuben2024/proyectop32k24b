@@ -378,7 +378,7 @@ public class MantenimientoPagos extends javax.swing.JInternalFrame {
         try {
             conn = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                    + "/src/main/java/reportes/rpBitacoraTiposDePagos.jrxml");
+                    + "/src/main/java/reportes/rptBitacoraTiposPagos.jrxml");
 	    print = JasperFillManager.fillReport(report, p, conn);
             JasperViewer view = new JasperViewer(print, false);
 	    view.setTitle("Reporte Tipos de Pagos");

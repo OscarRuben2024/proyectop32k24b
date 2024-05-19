@@ -3,18 +3,84 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package vista;
-
+import controlador.ProcesosTiposPagosCursos;
+import modelo.ProcesosTiposPagosCursosDAO;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import controlador.clsBitacora;
+import controlador.clsUsuarioConectado;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import modelo.Conexion;
 /**
  *
  * @author Joseg
  */
 public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
+int codigoAplicacion = 3456;
+    clsBitacora Auditoria = new clsBitacora();
+    
+     public void llenadoDeTablas() {
+     DefaultTableModel modelo = (DefaultTableModel) tablaProcesoPagoCursos.getModel();
+     modelo.setRowCount(0);
+     
+     ProcesosTiposPagosCursosDAO procesotipopagocursoDAO = new ProcesosTiposPagosCursosDAO();
+     List<ProcesosTiposPagosCursos> tipopagoscursos = procesotipopagocursoDAO.select();
+     
+     for (ProcesosTiposPagosCursos tipopagocurso: tipopagoscursos){
+         Object[] fila = new Object[]{
+           tipopagocurso.getProcesoIDPagoCurso(),
+           tipopagocurso.getProcesoCodigoCurso(),
+         };
+         modelo.addRow(fila);
+     }
+    }
+     
+       public void registrarprocesos(){
+       ProcesosTiposPagosCursosDAO procesoscursosDAO = new ProcesosTiposPagosCursosDAO();
+       ProcesosTiposPagosCursos ProcesosCursosAInsertar = new ProcesosTiposPagosCursos();
+       ProcesosCursosAInsertar.setProcesoIDPagoCurso(txtProcesoPagoCurso.getText());
+       ProcesosCursosAInsertar.setProcesoCodigoCurso(txtProcesoCodigoCurso.getText());
+       procesoscursosDAO.insert(ProcesosCursosAInsertar);
+        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
+       llenadoDeTablas();
+    }
+       
+       public void consultarprocesos(){
+       String idPagoCurso = txtProcesoPagoCurso.getText();
+       String codigoCurso = txtProcesoCodigoCurso.getText();
+       boolean encontrado = false;
 
-    /**
-     * Creates new form ProcesosTiposPagosCurso
-     */
+       DefaultTableModel modelo = (DefaultTableModel) tablaProcesoPagoCursos.getModel();
+       int rowCount = modelo.getRowCount();
+
+       for (int i = 0; i < rowCount; i++) {
+        String idPagoCursoTabla = (String) modelo.getValueAt(i, 0);
+        String codigoCursoTabla = (String) modelo.getValueAt(i, 1);
+
+        if (idPagoCurso.equals(idPagoCursoTabla) && codigoCurso.equals(codigoCursoTabla)) {
+            encontrado = true;
+            break;
+        }
+    }
+
+       if (encontrado) {
+        JOptionPane.showMessageDialog(this, "Datos verificados correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+     }  else {
+        JOptionPane.showMessageDialog(this, "No se encontraron los datos ingresados.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }
+     
+    
+    
     public ProcesosTiposPagosCurso() {
         initComponents();
+        llenadoDeTablas();
     }
 
     /**
@@ -40,16 +106,18 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtProcesoPagoCurso = new javax.swing.JTextField();
+        txtProcesoCodigoCurso = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        tablaProcesoPagoCursos = new javax.swing.JTable();
+        btnRegistrar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JButton();
+        txtBuscado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        btnConsultar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         jLabel2.setText("ID del Pago:");
 
@@ -87,7 +155,7 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Código del curso:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaProcesoPagoCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -98,17 +166,51 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
                 "ID del Pago", "Código Curso"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaProcesoPagoCursos);
 
-        jButton5.setText("Registrar");
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Modificar");
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Buscar");
+        txtBuscar.setText("Buscar");
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Ingresar dato:");
+
+        btnConsultar.setText("Consulta");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,23 +223,27 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField5))
+                            .addComponent(txtProcesoCodigoCurso))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtProcesoPagoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                        .addComponent(btnRegistrar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6)
+                        .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7))
+                        .addComponent(btnModificar))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8)))
+                        .addComponent(txtBuscar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnConsultar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -150,20 +256,24 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtProcesoPagoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
+                            .addComponent(txtProcesoCodigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7))
+                            .addComponent(btnConsultar)
+                            .addComponent(btnLimpiar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegistrar)
+                            .addComponent(btnEliminar)
+                            .addComponent(btnModificar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton8)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscar)
+                            .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -174,16 +284,60 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+      consultarprocesos();
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+      registrarprocesos();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       ProcesosTiposPagosCursosDAO procesoCursoDAO = new ProcesosTiposPagosCursosDAO();
+       ProcesosTiposPagosCursos procesosCursoAEliminar = new ProcesosTiposPagosCursos();
+       procesosCursoAEliminar.setProcesoIDPagoCurso(txtBuscado.getText());
+       procesoCursoDAO.delete(procesosCursoAEliminar);
+        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
+       llenadoDeTablas();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    ProcesosTiposPagosCursosDAO procesosDAO = new ProcesosTiposPagosCursosDAO();
+       ProcesosTiposPagosCursos procesosAActualizar = new ProcesosTiposPagosCursos();
+       procesosAActualizar.setProcesoIDPagoCurso(txtProcesoPagoCurso.getText());
+       procesosAActualizar.setProcesoCodigoCurso(txtProcesoCodigoCurso.getText());
+       procesosDAO.update(procesosAActualizar);
+        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+       llenadoDeTablas();
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtProcesoPagoCurso.setText("");
+        txtProcesoCodigoCurso.setText("");
+        txtBuscado.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        ProcesosTiposPagosCursos procesosCursoABuscar = new ProcesosTiposPagosCursos();
+     ProcesosTiposPagosCursosDAO procesoCursoDAO = new ProcesosTiposPagosCursosDAO();
+     procesosCursoABuscar.setProcesoIDPagoCurso(txtBuscado.getText());
+     procesosCursoABuscar = procesoCursoDAO.query(procesosCursoABuscar);
+      Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "ISO");
+      txtProcesoPagoCurso.setText(procesosCursoABuscar.getProcesoIDPagoCurso());
+      txtProcesoCodigoCurso.setText(procesosCursoABuscar.getProcesoCodigoCurso());
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -193,12 +347,13 @@ public class ProcesosTiposPagosCurso extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tablaProcesoPagoCursos;
+    private javax.swing.JTextField txtBuscado;
+    private javax.swing.JButton txtBuscar;
+    private javax.swing.JTextField txtProcesoCodigoCurso;
+    private javax.swing.JTextField txtProcesoPagoCurso;
     // End of variables declaration//GEN-END:variables
 }
