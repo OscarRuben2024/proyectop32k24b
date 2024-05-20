@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f56f6ed-fe3e-4a53-97a8-09226505a4c6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM tesoreria;]]>
+	</queryString>
+	<field name="id_tesoreria" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="monto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_banco" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_tipo_pago" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_moneda" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="337" y="12" width="100" height="20" uuid="312347be-0bec-4fe4-93f4-cbf85241cd43"/>
+				<textFieldExpression><![CDATA[$F{id_tesoreria}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="46" width="100" height="20" uuid="939e3bec-e531-435c-b112-622ec8ad0735"/>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="403" y="46" width="100" height="20" uuid="00eab9fb-1f61-461c-b274-c17399c84c6d"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="124" y="12" width="100" height="20" uuid="48c4c45e-de23-43de-a318-17d4203597b3"/>
+				<text><![CDATA[Tesoreria No.:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="46" width="100" height="20" uuid="d4a50a28-1220-41ca-a5eb-12defd8c2735"/>
+				<textFieldExpression><![CDATA[$F{id_tipo_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="46" width="100" height="20" uuid="4872baed-f9a1-4a7a-8135-3ad9d13f2311"/>
+				<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="46" width="100" height="20" uuid="7bf544bd-b8a5-46a3-9a51-920df9f71aca"/>
+				<textFieldExpression><![CDATA[$F{id_moneda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="46" width="183" height="20" uuid="96843869-ea2a-4930-8625-9516a5295cec"/>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="11" width="100" height="20" uuid="da0aec4a-cd53-4f12-b0ec-e07f65a50e96"/>
+				<text><![CDATA[ID del pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="11" width="100" height="20" uuid="6d9c1729-4d85-4a3d-97f3-c15b2e9e41fc"/>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="11" width="100" height="20" uuid="4bbaf282-893a-422e-9320-58cea4762834"/>
+				<text><![CDATA[Monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="11" width="100" height="20" uuid="b74af01a-1dd8-4ef6-a680-55258af4720c"/>
+				<text><![CDATA[ID de moneda]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -35,13 +35,9 @@ public class MdiGeneral extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-<<<<<<< HEAD
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-=======
         mnuArchivo = new javax.swing.JMenu();
         mnuArchivoAbrirSesion = new javax.swing.JMenuItem();
         mnuArchivoCerrarSesion = new javax.swing.JMenuItem();
@@ -50,17 +46,21 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuCatalogosMantenimientosCursos = new javax.swing.JMenuItem();
         mnuCatalogosMantenimientosAlumnos = new javax.swing.JMenuItem();
         mnuCatalogosMantenimientosMaestros = new javax.swing.JMenuItem();
-        mnuCatalogosMantenimientosCiclos = new javax.swing.JMenuItem();
+        ManBanco = new javax.swing.JMenuItem();
+        mnuCatalogosMantenimientosTiposDePagos = new javax.swing.JMenuItem();
+        ManMoneda = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
+        ProcesoTesoreria = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
         mnuSeguridad = new javax.swing.JMenu();
         mnuSeguridadBitacora = new javax.swing.JMenuItem();
         mnuAyudas = new javax.swing.JMenu();
->>>>>>> creacion_de_Reporte_Ciclos
 
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem2.setText("jMenuItem2");
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,28 +75,46 @@ public class MdiGeneral extends javax.swing.JFrame {
             .addGap(0, 279, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Archivo");
+        mnuArchivo.setText("Archivo");
 
-        jMenu3.setText("Mantenimientos");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+        mnuArchivoAbrirSesion.setText("Abrir Sesion");
+        mnuArchivoAbrirSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
+                mnuArchivoAbrirSesionActionPerformed(evt);
+            }
+        });
+        mnuArchivo.add(mnuArchivoAbrirSesion);
+
+        mnuArchivoCerrarSesion.setText("Cerrar Sesion");
+        mnuArchivo.add(mnuArchivoCerrarSesion);
+
+        jMenuBar1.add(mnuArchivo);
+
+        mnuCatalogos.setText("Catalogos");
+
+        mnuCatalogosMantenimiento.setText("Mantenimientos");
+        mnuCatalogosMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCatalogosMantenimientoActionPerformed(evt);
             }
         });
 
-        jMenuItem3.setText("Mantenimiento Cursos");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnuCatalogosMantenimientosCursos.setText("Mantenimiento Cursos");
+        mnuCatalogosMantenimientosCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mnuCatalogosMantenimientosCursosActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        mnuCatalogosMantenimiento.add(mnuCatalogosMantenimientosCursos);
 
-        jMenu1.add(jMenu3);
+        mnuCatalogosMantenimientosAlumnos.setText("Mantenimiento Alumnos");
+        mnuCatalogosMantenimientosAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCatalogosMantenimientosAlumnosActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimiento.add(mnuCatalogosMantenimientosAlumnos);
 
-<<<<<<< HEAD
-        jMenuBar1.add(jMenu1);
-=======
         mnuCatalogosMantenimientosMaestros.setText("Mantenimiento Maestros");
         mnuCatalogosMantenimientosMaestros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,19 +123,49 @@ public class MdiGeneral extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimiento.add(mnuCatalogosMantenimientosMaestros);
 
-        mnuCatalogosMantenimientosCiclos.setText("Mantenimiento Ciclos");
-        mnuCatalogosMantenimientosCiclos.addActionListener(new java.awt.event.ActionListener() {
+        ManBanco.setText("Mantenimiento Bancos");
+        ManBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuCatalogosMantenimientosCiclosActionPerformed(evt);
+                ManBancoActionPerformed(evt);
             }
         });
-        mnuCatalogosMantenimiento.add(mnuCatalogosMantenimientosCiclos);
+        mnuCatalogosMantenimiento.add(ManBanco);
+
+        mnuCatalogosMantenimientosTiposDePagos.setText("Mantenimiento TiposDePagos");
+        mnuCatalogosMantenimientosTiposDePagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCatalogosMantenimientosTiposDePagosActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimiento.add(mnuCatalogosMantenimientosTiposDePagos);
+
+        ManMoneda.setText("Mantenimiento TipoDeMoneda");
+        ManMoneda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManMonedaActionPerformed(evt);
+            }
+        });
+        mnuCatalogosMantenimiento.add(ManMoneda);
 
         mnuCatalogos.add(mnuCatalogosMantenimiento);
 
         jMenuBar1.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
+        mnuProcesos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuProcesosActionPerformed(evt);
+            }
+        });
+
+        ProcesoTesoreria.setText("ProcesoTesoreria");
+        ProcesoTesoreria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcesoTesoreriaActionPerformed(evt);
+            }
+        });
+        mnuProcesos.add(ProcesoTesoreria);
+
         jMenuBar1.add(mnuProcesos);
 
         mnuReportes.setText("Reportes");
@@ -138,7 +186,6 @@ public class MdiGeneral extends javax.swing.JFrame {
 
         mnuAyudas.setText("Ayuda");
         jMenuBar1.add(mnuAyudas);
->>>>>>> creacion_de_Reporte_Ciclos
 
         setJMenuBar(jMenuBar1);
 
@@ -156,21 +203,18 @@ public class MdiGeneral extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+    private void mnuCatalogosMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientoActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jMenu3ActionPerformed
+    }//GEN-LAST:event_mnuCatalogosMantenimientoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mnuCatalogosMantenimientosCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosCursosActionPerformed
         // TODO add your handling code here:
         MantenimientoCursos ventana = new MantenimientoCursos();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
-<<<<<<< HEAD
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-=======
     }//GEN-LAST:event_mnuCatalogosMantenimientosCursosActionPerformed
 
     private void mnuArchivoAbrirSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArchivoAbrirSesionActionPerformed
@@ -200,30 +244,51 @@ public class MdiGeneral extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_mnuSeguridadBitacoraActionPerformed
 
-    private void mnuCatalogosMantenimientosCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosCiclosActionPerformed
-          MantenimientoCiclos ventana = new MantenimientoCiclos();
+    private void mnuCatalogosMantenimientosTiposDePagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosTiposDePagosActionPerformed
+        MantenimientoPagos ventana = new MantenimientoPagos();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_mnuCatalogosMantenimientosTiposDePagosActionPerformed
 
-
-
-
-
-
+    private void ManBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManBancoActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_mnuCatalogosMantenimientosCiclosActionPerformed
-<<<<<<< HEAD
->>>>>>> creacion_de_Reporte_Ciclos
-=======
->>>>>>> creacion_de_Reporte_Ciclos
+        MantenimientoBancos ventana = new MantenimientoBancos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_ManBancoActionPerformed
+
+    private void ManMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManMonedaActionPerformed
+        // TODO add your handling code here:
+        MantenimientoTiposDeMoneda ventana = new MantenimientoTiposDeMoneda();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_ManMonedaActionPerformed
+
+    private void mnuProcesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProcesosActionPerformed
+        // TODO add your handling code here:
+        ProcesoTesoreria ventana = new ProcesoTesoreria();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_mnuProcesosActionPerformed
+
+    private void ProcesoTesoreriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesoTesoreriaActionPerformed
+        // TODO add your handling code here:
+        ProcesoTesoreria ventana = new ProcesoTesoreria();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_ProcesoTesoreriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,15 +326,14 @@ public class MdiGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ManBanco;
+    private javax.swing.JMenuItem ManMoneda;
+    private javax.swing.JMenuItem ProcesoTesoreria;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-<<<<<<< HEAD
-    private javax.swing.JMenuItem jMenuItem3;
-=======
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenuItem mnuArchivoAbrirSesion;
     private javax.swing.JMenuItem mnuArchivoCerrarSesion;
@@ -277,13 +341,12 @@ public class MdiGeneral extends javax.swing.JFrame {
     private javax.swing.JMenu mnuCatalogos;
     private javax.swing.JMenu mnuCatalogosMantenimiento;
     private javax.swing.JMenuItem mnuCatalogosMantenimientosAlumnos;
-    private javax.swing.JMenuItem mnuCatalogosMantenimientosCiclos;
     private javax.swing.JMenuItem mnuCatalogosMantenimientosCursos;
     private javax.swing.JMenuItem mnuCatalogosMantenimientosMaestros;
+    private javax.swing.JMenuItem mnuCatalogosMantenimientosTiposDePagos;
     private javax.swing.JMenu mnuProcesos;
     private javax.swing.JMenu mnuReportes;
     private javax.swing.JMenu mnuSeguridad;
     private javax.swing.JMenuItem mnuSeguridadBitacora;
->>>>>>> creacion_de_Reporte_Ciclos
     // End of variables declaration//GEN-END:variables
 }
